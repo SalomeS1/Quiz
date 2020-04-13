@@ -98,9 +98,9 @@ public class QuizActivity  extends Activity {
 
     public  void setDefaultColor()
     {
-        aOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
-        bOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
-        cOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
-        dOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
+        aOption.setBackgroundColor(getResources().getColor(R.color.optionButton));
+        bOption.setBackgroundColor(getResources().getColor(R.color.optionButton));
+        cOption.setBackgroundColor(getResources().getColor(R.color.optionButton));
+        dOption.setBackgroundColor(getResources().getColor(R.color.optionButton));
     }
 }
