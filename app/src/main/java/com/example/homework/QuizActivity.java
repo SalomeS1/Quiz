@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.homework.data.Questions;
 import com.example.homework.data.Storage;
@@ -41,30 +42,44 @@ public class QuizActivity  extends Activity {
         questions = new Questions();
         counter = 0;
         LastScore = 0;
+        current_answer ="";
         ask_questions();
     }
 
     public void finish_vs_next(View view)
     {
-        ask_questions();
-        if(current_answer == "Correct")
+        if(!current_answer.equals("Correct") && !current_answer.equals("Incorrect"))
         {
-            LastScore += 1;
+            Toast.makeText(QuizActivity.this, "Answer the question", Toast.LENGTH_SHORT).show();
         }
-        if(counter == questions.length)
-        {
-            Storage storage = new StorageSharedPreferencesImpl();
-            storage.save(this, "score", Integer.toString(LastScore));
-            Intent intent = new Intent(this, HomeActivity.class);
-            startActivity(intent);
+        else {
+            counter += 1;
+
+            if (current_answer == "Correct") {
+                LastScore += 1;
+            }
+
+            if (counter == questions.length) {
+                Storage storage = new StorageSharedPreferencesImpl();
+                storage.save(this, "score", Integer.toString(LastScore));
+                Intent intent = new Intent(this, HomeActivity.class);
+                startActivity(intent);
+                return;
+            }
+            if(counter == questions.length - 1)
+            {
+                answer.setText("Finish Quiz");
+            }
+
+            ask_questions();
+            set_color_to_default();
+            current_answer = "";
         }
-        set_color_to_default();
     }
 
     public void ask_questions()
     {
         question.setText(questions.questions.get(counter));
-        counter += 1;
         int j = 0;
         a_option.setText((CharSequence) questions.answers.get(counter).get(j++));
         b_option.setText((CharSequence) questions.answers.get(counter).get(j++));
