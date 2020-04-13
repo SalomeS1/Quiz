@@ -21,12 +21,12 @@ public class QuizActivity  extends Activity {
     Questions questions;
     TextView question;
     Button answer;
-    Button a_option;
-    Button b_option;
-    Button c_option;
-    Button d_option;
-    String current_answer;
-    int LastScore ;
+    Button aOption;
+    Button bOption;
+    Button cOption;
+    Button dOption;
+    String currentAnswer;
+    int lastScore ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,34 +34,34 @@ public class QuizActivity  extends Activity {
         setContentView(R.layout.activity_quiz);
         question = (TextView)findViewById(R.id.question);
         answer = (Button)findViewById(R.id.footer_button);
-        a_option = (Button)findViewById(R.id.A_option);
-        b_option = (Button)findViewById(R.id.B_option);
-        c_option = (Button)findViewById(R.id.C_option);
-        d_option = (Button)findViewById(R.id.D_option);
-        set_color_to_default();
+        aOption = (Button)findViewById(R.id.A_option);
+        bOption = (Button)findViewById(R.id.B_option);
+        cOption = (Button)findViewById(R.id.C_option);
+        dOption = (Button)findViewById(R.id.D_option);
+        setDefaultColor();
         questions = new Questions();
         counter = 0;
-        LastScore = 0;
-        current_answer ="";
-        ask_questions();
+        lastScore = 0;
+        currentAnswer ="";
+        askQuestions();
     }
 
-    public void finish_vs_next(View view)
+    public void finishOrNext(View view)
     {
-        if(!current_answer.equals("Correct") && !current_answer.equals("Incorrect"))
+        if(!currentAnswer.equals("Correct") && !currentAnswer.equals("Incorrect"))
         {
             Toast.makeText(QuizActivity.this, "Answer the question", Toast.LENGTH_SHORT).show();
         }
         else {
             counter += 1;
 
-            if (current_answer == "Correct") {
-                LastScore += 1;
+            if (currentAnswer == "Correct") {
+                lastScore += 1;
             }
 
             if (counter == questions.length) {
                 Storage storage = new StorageSharedPreferencesImpl();
-                storage.save(this, "score", Integer.toString(LastScore));
+                storage.save(this, "score", Integer.toString(lastScore));
                 Intent intent = new Intent(this, HomeActivity.class);
                 startActivity(intent);
                 return;
@@ -71,35 +71,35 @@ public class QuizActivity  extends Activity {
                 answer.setText("Finish Quiz");
             }
 
-            ask_questions();
-            set_color_to_default();
-            current_answer = "";
+            askQuestions();
+            setDefaultColor();
+            currentAnswer = "";
         }
     }
 
-    public void ask_questions()
+    public void askQuestions()
     {
         question.setText(questions.questions.get(counter));
         int j = 0;
-        a_option.setText((CharSequence) questions.answers.get(counter).get(j++));
-        b_option.setText((CharSequence) questions.answers.get(counter).get(j++));
-        c_option.setText((CharSequence) questions.answers.get(counter).get(j++));
-        d_option.setText((CharSequence) questions.answers.get(counter).get(j++));
+        aOption.setText((CharSequence) questions.answers.get(counter).get(j++));
+        bOption.setText((CharSequence) questions.answers.get(counter).get(j++));
+        cOption.setText((CharSequence) questions.answers.get(counter).get(j++));
+        dOption.setText((CharSequence) questions.answers.get(counter).get(j++));
     }
 
-    public void color_change(View view)
+    public void colorChange(View view)
     {
-        set_color_to_default();
+        setDefaultColor();
         option = (Button) view;
-        current_answer = (String) option.getText();
+        currentAnswer = (String) option.getText();
         option.setBackgroundColor(getResources().getColor(R.color.colorAccent));
     }
 
-    public  void set_color_to_default()
+    public  void setDefaultColor()
     {
-        a_option.setBackgroundColor(getResources().getColor(R.color.option_buttons));
-        b_option.setBackgroundColor(getResources().getColor(R.color.option_buttons));
-        c_option.setBackgroundColor(getResources().getColor(R.color.option_buttons));
-        d_option.setBackgroundColor(getResources().getColor(R.color.option_buttons));
+        aOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
+        bOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
+        cOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
+        dOption.setBackgroundColor(getResources().getColor(R.color.option_buttons));
     }
 }

@@ -17,9 +17,9 @@ import org.w3c.dom.Text;
 
 public class HomeActivity extends Activity {
 
-    Button  start_quiz;
+    Button  startQuiz;
     TextView title;
-    TextView score_view;
+    TextView scoreView;
     String score;
 
     @Override
@@ -27,18 +27,18 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         title = (TextView)findViewById(R.id.title);
-        score_view = (TextView)findViewById(R.id.score);
+        scoreView = (TextView)findViewById(R.id.score);
 
         Storage storage = new StorageSharedPreferencesImpl();
         if (storage.exists(this, "score") || storage.get(this,"score") == "") {
             score =  storage.get(this, "score");
-            score_view.setText(score);
+            scoreView.setText(score);
             title.setVisibility(View.VISIBLE);
-            score_view.setVisibility(View.VISIBLE);
+            scoreView.setVisibility(View.VISIBLE);
         }
 
-        start_quiz = (Button)findViewById(R.id.StartAction);
-        start_quiz.setOnClickListener(new View.OnClickListener() {
+        startQuiz = (Button)findViewById(R.id.StartAction);
+        startQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, QuizActivity.class);

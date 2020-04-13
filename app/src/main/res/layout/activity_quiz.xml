@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:text="Next Question"
-            android:onClick="finish_vs_next"
+            android:onClick="finishOrNext"
             android:textSize="24dp" />
     </RelativeLayout>
 
@@ -65,28 +65,28 @@
             <Button
                 android:id="@+id/A_option"
                 android:layout_width="match_parent"
-                android:onClick="color_change"
+                android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
             </Button>
             <Button
                 android:id="@+id/B_option"
                 android:layout_width="match_parent"
-                android:onClick="color_change"
+                android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
             </Button>
             <Button
                 android:id="@+id/C_option"
                 android:layout_width="match_parent"
-                android:onClick="color_change"
+                android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
             </Button>
             <Button
                 android:id="@+id/D_option"
                 android:layout_width="match_parent"
-                android:onClick="color_change"
+                android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
             </Button>
