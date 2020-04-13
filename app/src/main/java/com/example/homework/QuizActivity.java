@@ -17,27 +17,28 @@ import java.util.Map;
 public class QuizActivity  extends Activity {
 
     Button option;
-    int counter;
-    Questions questions;
-    TextView question;
     Button answer;
     Button aOption;
     Button bOption;
     Button cOption;
     Button dOption;
+    Questions questions;
+    TextView question;
     String currentAnswer;
     int lastScore ;
+    int counter;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         question = (TextView)findViewById(R.id.question);
-        answer = (Button)findViewById(R.id.footer_button);
-        aOption = (Button)findViewById(R.id.A_option);
-        bOption = (Button)findViewById(R.id.B_option);
-        cOption = (Button)findViewById(R.id.C_option);
-        dOption = (Button)findViewById(R.id.D_option);
+        answer = (Button)findViewById(R.id.footerButton);
+        aOption = (Button)findViewById(R.id.aOption);
+        bOption = (Button)findViewById(R.id.bOption);
+        cOption = (Button)findViewById(R.id.cOption);
+        dOption = (Button)findViewById(R.id.dOption);
         setDefaultColor();
         questions = new Questions();
         counter = 0;

@@ -30,7 +30,7 @@
         android:gravity="center" >
 
         <Button
-            android:id="@+id/footer_button"
+            android:id="@+id/footerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
@@ -63,28 +63,28 @@
                 android:layout_marginBottom="10dp"
                 android:textSize="20dp" />
             <Button
-                android:id="@+id/A_option"
+                android:id="@+id/aOption"
                 android:layout_width="match_parent"
                 android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
             </Button>
             <Button
-                android:id="@+id/B_option"
+                android:id="@+id/bOption"
                 android:layout_width="match_parent"
                 android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
             </Button>
             <Button
-                android:id="@+id/C_option"
+                android:id="@+id/cOption"
                 android:layout_width="match_parent"
                 android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
             </Button>
             <Button
-                android:id="@+id/D_option"
+                android:id="@+id/dOption"
                 android:layout_width="match_parent"
                 android:onClick="colorChange"
                 android:layout_marginBottom="10dp"
