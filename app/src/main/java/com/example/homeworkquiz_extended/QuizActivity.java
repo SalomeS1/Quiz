@@ -108,6 +108,7 @@ public class QuizActivity extends Activity {
                 storageBoard.add(this, "LeaderBoard",boardStorage);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
+                finish();
                 return;
             }
             if(counter == questionStorage.size() - 1)

@@ -53,8 +53,6 @@ public class AddQuestionActivity extends Activity {
         forthAns= (EditText)findViewById(R.id.answer4);
         questions = (ListView) findViewById(R.id.questions);
         storage = new StorageQuestionsImpl();
-        questionArrayAdapter = new QuestionArrayAdapter(this, 0, new ArrayList<Question>());
-        questions.setAdapter(questionArrayAdapter);
         getStorageFillAdapter();
     }
 
@@ -68,6 +66,8 @@ public class AddQuestionActivity extends Activity {
             quizStorage = new QuestionStorage();
         }
         questionStorage = quizStorage.getQuestions();
+        questionArrayAdapter = new QuestionArrayAdapter(this, 0, new ArrayList<Question>());
+        questions.setAdapter(questionArrayAdapter);
         questionArrayAdapter.addAll(questionStorage);
     }
 
